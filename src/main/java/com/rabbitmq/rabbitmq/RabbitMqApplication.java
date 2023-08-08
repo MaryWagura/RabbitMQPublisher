@@ -17,6 +17,17 @@ public class RabbitMqApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		rabbitTemplate.
+		//to sent without an exchange, routing key that is set :: sent to default AMQP queue
+//		rabbitTemplate.convertAndSend("hello from first message");
+
+		//with an exchange & key set
+//		rabbitTemplate.convertAndSend("TestExchange", "testRouting", "hello from code");
+
+		//with DTO
+		SimpleMessage simpleMessage= new SimpleMessage();
+		simpleMessage.setName("FirstMessage");
+		simpleMessage.setDescription("SimpleDescription");
+		rabbitTemplate.convertAndSend("TestExchange", "testRouting", simpleMessage);
+
 	}
 }
