@@ -10,6 +10,13 @@ public class SimpleMessage implements Serializable {
     private String description;
 
     public SimpleMessage(){
+    }
 
+    @Override
+    public String toString(){
+        return "SimpleMessage{" +
+                "name='" + name + '\'' +
+                "description='" + description + '\'' +
+                '}';
     }
 }
